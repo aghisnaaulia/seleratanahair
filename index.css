@@ -1,13 +1,18 @@
 .isi {
     position: relative;
     margin: 10px 80px;
+    color: #000000;
     font-family: "Poppins", sans-serif;
     font-weight: 400;
     font-style: normal;
+    text-decoration: none;
+    text-shadow: none;
 }
 
 #navbarr {
-    margin: 0 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .navbar-brand {
@@ -16,7 +21,7 @@
 
 #navbar-search {
     margin-left: 10%;
-    width: 25%;
+    width: 30%;
 }
 
 #form-search {
@@ -24,11 +29,11 @@
 }
 
 #navbartext {
-    padding-left: 60px;
+    padding-left: 110px;
 }
 
 #navbartext li {
-    margin: 0 30px;
+    margin: 0 10px;
 }
 
 #btn-recipes {
@@ -38,44 +43,180 @@
     margin-top: 2px;
 }
 
+.container-eek {
+    position: relative;
+    width: 100%;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    align-self: center;
+}
+
+.login-container {
+    padding: 4rem;
+    margin-top: 5vw;
+    border-radius: 25px;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    align-self: center;
+    background-image: linear-gradient(to bottom, rgb(255, 136, 91, 0.3), rgb(255, 136, 91, 0.6), rgb(255, 136, 91));
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 475px;
+    height: 622px;
+}
+
+#judul-login {
+    position: relative;
+    display: flex;
+    margin: auto auto 25vw auto;
+    width: fit-content;
+    font-size: 15px;
+    font-weight: 900;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    align-self: center;
+    letter-spacing: 0.2px;
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#p-details {
+    color: #000000;
+    position: relative;
+    display: flex;
+    margin: -24vw auto auto auto;
+    width: fit-content;
+    height: fit-content;
+    font-size: 15px;
+    font-weight: 500;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    align-self: center;
+    letter-spacing: 0.2px;
+}
+
+.form-group {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    text-align: justify;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 0.3px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-sizing: border-box;
+    font-size: 12px;
+}
+
+#p-notes {
+    color: #000000;
+    font-size: 12px;
+    text-align: justify;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #FFFFFF;
+    color: #5F5F5F;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition-duration: 0.4s;
+}
+
+.login-btn:hover {
+    color: #929292;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+.terms {
+    font-size: 0.8rem;
+    color: #666;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.error {
+    color: red;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
 #sliderr {
     margin: 10px 0;
     border-radius: 15px;
+    height: 55vh;
 }
 
 #rekomen-text {
+    display: flex;
     position: relative;
     margin-top: 50px;
     font-size: 20px;
     text-align: center;
     font-weight: bold;
     text-decoration: none;
-}
-
-#kotak-row-rekomen {
-    border-radius: 15px;
-    background-image: linear-gradient(to bottom, #ffffff, #FFE5CF, #FFE5CF);
-    width: auto;
-    height: 60vh;
-    padding: 0 5%;
-}
-
-#kotak-col-rekomen {
-    position: relative;
-    width: 90%;
-    background-color: #ffffff;
-    border: none;
-    border-radius: 15px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
-    padding: 20px 20px;
-    margin: -50px 20px;
     justify-content: center;
     align-content: center;
     align-items: center;
 }
 
+#kotak-row-rekomen {
+    border-radius: 15px;
+    background-image: linear-gradient(to bottom, rgb(255, 201, 111, 0.3), rgb(255, 201, 111, 0.6), rgb(255, 201, 111));
+    width: 185vh;
+    height: fit-content;
+    padding: 0 5%;
+    margin: 0 -35px;
+}
+
+#kotak-col-rekomen {
+    position: relative;
+    width: 90%;
+    height: fit-content;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+    padding: 20px 20px;
+    margin: 60px 20px;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+#kotak-col-rekomen:hover {
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
+}
+
 #kotak-text-rekomen {
     height: fit-content;
+    margin-top: 35px;
     font-size: 15px;
     text-decoration: none;
     font-weight: normal;
@@ -83,8 +224,425 @@
 }
 
 .img-rekomen {
+    position: relative;
     width: 200px;
-    border-radius: 50%;
+    border-radius: 20px;
     border: none;
     margin-top: 10%;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+.img-rekomen:hover {
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+#cont-rekomen {
+    background: linear-gradient(to bottom, rgb(255, 201, 111, 0.3), rgb(255, 201, 111, 0.6), rgb(255, 201, 111));
+    ;
+    width: fit-content;
+    height: fit-content;
+}
+
+#row-card-rekomen {
+    position: relative;
+    display: flex;
+    width: max-content;
+    padding: auto;
+    margin: auto;
+    flex-direction: row;
+    text-align: center;
+    text-decoration: none;
+    align-content: center;
+    align-items: baseline;
+    justify-content: center;
+}
+
+#img-card-rekomen {
+    position: relative;
+    width: 70%;
+    margin: auto;
+    margin-top: 15%;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+}
+
+#card-text-rekomen {
+    width: fit-content;
+    height: fit-content;
+    margin-top: 20px;
+    font-size: 14px;
+    text-decoration: none;
+    font-weight: normal;
+    text-align: center;
+}
+
+#card-klik {
+    position: relative;
+    color: #6D7588;
+    background-color: #ffffff;
+    border-color: #cacaca;
+    border-radius: 20px;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+    transition-duration: 0.4s;
+    margin: 0px 28px 25px;
+    width: 80%;
+    height: 40px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    text-decoration: none;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+
+#card-klik:hover,
+#card-klik:focus,
+#card-klik:active,
+#card-klik.active,
+.open .dropdown-toggle #card-klik {
+    color: #ffffff;
+    background-color: #797979;
+}
+
+#kotak-col-eksplor {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
+#prov-klik {
+    position: relative;
+    color: #000000;
+    transition-duration: 0.4s;
+    padding: 1.5rem 0rem 0rem 0rem;
+    margin: auto;
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    text-decoration: none;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+}
+
+#prov-klik:hover,
+#prov-klik:focus,
+#prov-klik:active,
+#prov-klik.active,
+.open .dropdown-toggle #prov-klik {
+    color: #797979;
+}
+
+#btn-klik {
+    position: relative;
+    color: #6D7588;
+    background-color: #ffffff;
+    border-color: #EDEDED;
+    border-radius: 20px;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+    transition-duration: 0.4s;
+    margin: 5px 28px 25px;
+    width: 80%;
+    height: fit-content;
+    font-size: 15px;
+    text-align: center;
+    align-content: center;
+    align-items: center;
+}
+
+#btn-klik:hover,
+#btn-klik:focus,
+#btn-klik:active,
+#btn-klik.active,
+.open .dropdown-toggle #btn-klik {
+    color: #ffffff;
+    background-color: #797979;
+}
+
+#btn-slider-1 {
+    position: relative;
+    color: #ffffff;
+    background: none;
+    border-color: #EDEDED;
+    border-radius: 20px;
+    margin: -30% 42% 0%;
+    width: 17%;
+    height: fit-content;
+    font-size: 15px;
+    text-align: center;
+    align-content: center;
+    align-items: center;
+}
+
+#btn-slider-1:hover,
+#btn-slider-1:focus,
+#btn-slider-1:active,
+#btn-slider-1.active,
+.open .dropdown-toggle #btn-slider-1 {
+    color: #000000;
+    background-color: #EDEDED;
+}
+
+#eksplor-full {
+    width: 100%;
+    height: fit-content;
+}
+
+#eksplor-text {
+    position: relative;
+    margin: auto;
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#kotak-col-eksplor {
+    position: relative;
+    width: 90%;
+    height: fit-content;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+    padding: 20px 20px;
+    margin: 30px 20px;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+#kotak-col-eksplor:hover {
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+#kotak-text-eksplor {
+    height: fit-content;
+    margin-top: 35px;
+    font-size: 15px;
+    text-decoration: none;
+    font-weight: normal;
+    text-align: justify;
+}
+
+#conta-detail {
+    padding: 5em 20em;
+}
+
+#detail-text {
+    display: flex;
+    position: relative;
+    margin-top: 50px;
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+    text-decoration: none;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+#card-detail {
+    width: fit-content;
+    height: fit-content;
+    margin-top: auto;
+    background: none;
+    text-decoration: none;
+    font-weight: normal;
+    text-align: center;
+}
+
+#list-detail {
+    background: none;
+    text-decoration: none;
+}
+
+#judul-review {
+    display: flex;
+    position: relative;
+    margin-top: 50px;
+    font-size: 25px;
+    text-align: center;
+    font-weight: bold;
+    text-decoration: none;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+#card-revw {
+    position: relative;
+    display: flex;
+    margin: auto;
+    border-radius: 20px;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    align-self: center;
+}
+#card-revw:hover {
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+#img-card-review {
+    position: relative;
+    display: flex;
+    width: 20%;
+    margin-top: 12%;
+    margin-left: 3rem;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    align-self: center;
+    text-align: center;
+}
+
+#card-text-review-1 {
+    position: relative;
+    display: flex;
+    margin-top: 3.5vw;
+    margin-left: -17vw;
+    width: fit-content;
+    height: fit-content;
+    font-size: 20px;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    text-align: justify;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    align-self: center;
+}
+
+#card-text-review-2 {
+    position: relative;
+    display: flex;
+    margin-top: 2vw;
+    margin-left: -25vw;
+    width: 75vw;
+    height: 8vw;
+    font-size: 15px;
+    text-decoration: none;
+    font-weight: 500;
+    text-align: justify;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    align-self: center;
+}
+
+#btn-addrec {
+    position: relative;
+    display: flex;
+    height: fit-content;
+    border-radius: 15px;
+    font-size: 13px;
+    text-decoration: underline;
+    font-weight: 500;
+    text-align: end;
+    justify-content: end;
+    align-content: flex-end;
+    align-items: flex-end;
+    align-self: flex-end;
+}
+#btn-addrec:hover {
+    color: #000000;
+    text-decoration: none;
+}
+
+#tb-addrec {
+    margin-top: 1vw;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    align-self: center;
+    text-decoration: none;
+}
+
+#btn-logout {
+    position: relative;
+    display: flex;
+    margin: auto;
+    width: fit-content;
+    height: fit-content;
+    border-radius: 10px;
+    color: #000000;
+    background-color: #F5F5F5;
+    font-size: 13px;
+    text-decoration: none;
+    font-weight: 600;
+    text-align: center;
+    justify-content: flex-end;
+    align-content: flex-end;
+    align-items: flex-end;
+    align-self: flex-end;
+    letter-spacing: 0.3px;
+}
+#btn-logout:hover {
+    color: #696969;
+    text-decoration: none;
+}
+
+#form-addrec {
+    margin-top: 2rem;
+    margin-left: 8rem;
+    width: 100%;
+    height: fit-content;
+    font-size: 13px;
+    text-decoration: none;
+    font-weight: 600;
+    text-align: justify;
+    text-decoration: none;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    align-self: center;
+    letter-spacing: 0.3px;
+}
+
+#submit-addrec {
+    width: 50vw;
+    height: fit-content;
+    border: none;
+    border-radius: 10px;
+    color: #000000;
+    background-color: #ffffff;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+    font-size: 13px;
+    text-decoration: none;
+    font-weight: 600;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    align-self: center;
+    letter-spacing: 0.3px;
+}
+#submit-addrec:hover {
+    color: #000000;
+    background-color: #F5F5F5;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
+    border: none;
+    text-decoration: none;
+}
+
+#input-addrec {
+    width: 70vw;
+    font-size: 14px;
 }
