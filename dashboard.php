@@ -5,7 +5,7 @@
         header("Location: index.php");
         exit();
     }
-    
+
     include('navbar.php');
     include('config.php');
 
@@ -19,7 +19,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resep Menu Cita Rasa Nusantara | Selera Tanah Air</title>
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         .logout-btn {
             background: #666;
@@ -80,8 +80,10 @@
                             <th width="3%" class="id">ID</th>
                             <th width="10%">Menu</th>
                             <th width="10%">Recipes</th>
-                            <th width="10%">Province of Origin</th>
+                            <th width="10%">Cooking Step</th>
+                            <th width="15%">Province of Origin</th>
                             <th width="10%">Image</th>
+                            <th width="10%"></th>
                         </tr>
                     </thead>
 
@@ -98,23 +100,47 @@
                                 echo "<tr>";
                                 echo "<td>" . $no . "</td>";
                                 echo "<td class='menu' style='color: rgb(0,0,255)';>" . $data['menu'] . "</td>";
-                                echo "<td>" . $data['recipes'] . "</td>";
+                                echo ' <td><a class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#detailModal' . $data['id_recipes'] . '">View Details</a></td>';
+                                echo ' <td><a class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#detailModal' . $data['id_recipes'] . '">View Details</a></td>';
                                 echo "<td>" . $data['province'] . "</td>";
-                                echo "<td>" . $data['image'] . "</td>";
+                                echo '<td> <img src="' .$data['image']. '" width="70px"></td>';
 
                                 echo '<td>
                                         <a href="edit.php?id_recipes=' . $data['id_recipes'] . '" class="btn btn-secondary btn-sm">Edit</a>
-                                        <a href="delete.php?id_recipes=' . $data['id_recipes'] . '" class="btn btn-danger btn-sm" onclick="return confirm
-                                        (\'Are you sure want to delete this data?\')">Delete</a>
-                                    </td>
-                                </tr>
-                                ';
+                                        <a href="delete.php?id_recipes=' . $data['id_recipes'] . '" class="btn btn-danger btn-sm" onclick="return confirm(\'Are you sure want to delete this data?\')">Delete</a>
+                                    </td>';
+                                echo "</tr>";
+
+                                echo '
+                                <div class="modal fade" id="detailModal' . $data['id_recipes'] . '" tabindex="-1" aria-labelledby="detailModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="detailModalLabel">Detail Resep: ' . htmlspecialchars($data['menu']) . '</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <h6><strong>Recipes:</strong></h6>
+                                                <p>' . $data['recipes']. '</p>
+                                                <hr>
+                                                <h6><strong>Cooking Steps:</strong></h6>
+                                                <p>' . $data['cooking_steps'] . '</p>
+                                                <hr>
+
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>';
                                 $no++;
                             }
+
                         } else {
                             echo '
                             <tr>
-                                <td colspan="6">No Data</td>
+                                <td colspan="7">No Data</td>
                             </tr>
                         ';
                         }
@@ -128,6 +154,7 @@
     <br>
 
     <a href="logout.php" class="logout-btn" id="btn-logout">Logout</a>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

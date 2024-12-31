@@ -1,5 +1,6 @@
 <?php
     include('navbar.php');
+    include('config.php');
 ?>
 
 <!DOCTYPE html>
@@ -9,31 +10,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resep Menu Cita Rasa Nusantara | Selera Tanah Air</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote-lite.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote-lite.min.js"></script>
 </head>
 
 <body class="isi">
     <?php
-    if (isset($_POST['submit'])) {
-        $menu = $_POST['menu'];
-        $recipes = $_POST['recipes'];
-        $province = $_POST['province'];
+      if (isset($_POST['submit'])) {
+        $menu = mysqli_real_escape_string($connection, $_POST['menu']);
+        $recipes = mysqli_real_escape_string($connection, $_POST['recipes']);
+        $cooking_steps = mysqli_real_escape_string($connection, $_POST['cooking_steps']);
+        $province = mysqli_real_escape_string($connection, $_POST['province']);
         $image = $_FILES['image'];
+        $uploadDir = 'uploads/';
 
-        $check = mysqli_query($connection, "SELECT * FROM recipes WHERE menu='$menu'") or die(mysqli_error);
+        if (!is_dir($uploadDir)) {
+            mkdir($uploadDir, 0777, true);
+        }
 
-        if (mysqli_num_rows($check) >= 0) {
-            $sql = mysqli_query($connection, "INSERT INTO recipes(menu, recipes, province, image) VALUES('$menu', '$recipes', '$province', '$image')");
+        if ($image['error'] !== UPLOAD_ERR_OK) {
+            die('Terjadi kesalahan saat mengunggah file.');
+        }
 
-            if ($sql) {
-                echo '<script>alert("Success! Data Added."); document.location="dashboard.php";</script>';
-            } else {
-                echo '<div class="alert alert-warning">Error! Please check the data.</div>';
-            }
+        $maxFileSize = 10 * 1024 * 1024;
+        if ($image['size'] > $maxFileSize) {
+            die('Ukuran file terlalu besar. Maksimal 10MB.');
+        }
+
+        $fileExtension = pathinfo($image['name'], PATHINFO_EXTENSION);
+        $fileName = uniqid('img_', true) . '.' . $fileExtension;
+        $filePath = $uploadDir . $fileName;
+
+        if (!move_uploaded_file($image['tmp_name'], $filePath)) {
+            die('Gagal memindahkan file yang diunggah.');
+        }
+
+
+        $sql = mysqli_query($connection, "INSERT INTO recipes (menu, recipes, cooking_steps, province, image) VALUES ('$menu', '$recipes','$cooking_steps', '$province', '$filePath')");
+        if ($sql) {
+            echo '<script>alert("Success! Data Added."); document.location="dashboard.php";</script>';
+        } else {
+            echo '<div class="alert alert-warning">Error! Please check the data.</div>';
         }
     }
     ?>
 
-    <form action="add.php" method="post" id="form-addrec">
+    <form action="add.php" method="post" id="form-addrec" enctype="multipart/form-data">
         <div class="item form-group">
             <label class="col-form-label col-md-3 col-sm-3 label-align">Menu</label>
             <div class="col-md-6 col-sm-6">
@@ -44,7 +67,13 @@
         <div class="item form-group">
             <label class="col-form-label col-md-3 col-sm-3 label-align">Recipes</label>
             <div class="col-md-6 col-sm-6">
-                <input type="text" name="recipes" class="form-control" id="input-addrec" required>
+                <textarea  name="recipes"  class="summernote" required> </textarea>
+            </div>
+        </div>
+        <div class="item form-group">
+            <label class="col-form-label col-md-3 col-sm-3 label-align">Cooking Step</label>
+            <div class="col-md-6 col-sm-6">
+                <textarea  name="cooking_steps"  class="summernote" required> </textarea>
             </div>
         </div>
 
@@ -74,6 +103,18 @@
             </div>
         </div>
     </form>
+    <script>
+         $('.summernote').summernote({
+        height: 120,
+        toolbar: [
+          ['style', ['style']],
+          ['font', ['bold', 'underline', 'clear']],
+          ['color', ['color']],
+          ['para', ['ul', 'ol', 'paragraph']],
+          ['view', ['fullscreen', 'codeview', 'help']]
+        ]
+      });
+    </script>
 </body>
 
 </html>

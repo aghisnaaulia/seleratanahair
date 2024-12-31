@@ -3,7 +3,7 @@
 if (isset($_POST['Upload'])) {
 $dir_upload = "images/";
 $file_name = $_FILES['file']['name'];
-//
+
     if (is_uploaded_file($_FILES['file']['tmp_name'])) {
     $cek = move_uploaded_file ($_FILES['file']['tmp_name'],
     $dir_upload.$file_name);
@@ -16,4 +16,4 @@ $file_name = $_FILES['file']['name'];
     }
 }
 
-?> 
+?>

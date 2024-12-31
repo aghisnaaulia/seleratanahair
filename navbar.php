@@ -24,7 +24,7 @@
 
 <body class="isi">
     <!-- navbar -->
-    <nav class="navbar navbar-expand-lg" id="navbarr" style="background-color: #FFFFF;">
+    <nav class="navbar navbar-expand-lg" id="navbarr" style="background-color: #FFFFFF;">
         <div class="container-fluid">
             <a class="navbar-brand" href="index.php">Selera Tanah Air</a>
 
@@ -35,8 +35,8 @@
 
             <nav class="navbar search" id="navbar-search" style="background-color: none;">
                 <div class="container-fluid">
-                    <form class="d-flex" id="form-search" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <form class="d-flex" id="form-search" action="recipes_details.php" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" name="s" aria-label="Search">
                     </form>
                 </div>
             </nav>

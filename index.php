@@ -1,5 +1,9 @@
 <?php
     include('navbar.php');
+    include('config.php');
+
+    $data =  mysqli_query($connection, "SELECT * FROM recipes
+                        ORDER BY id_recipes DESC") or die(mysqli_error($connection));
 ?>
 
 <!DOCTYPE html>
@@ -48,45 +52,22 @@
     <div class="container text-center">
         <p id="rekomen-text">Popular Recipes you Can Try</p>
 
-        <div class="row row-cols-1 row-cols-md-3 g-4" id="row-card-rekomen">
-            <div class="col">
-                <div class="card h-100" style="width: 18rem; border-radius: 20px">
-                    <img src="assets/img/rendang.jpg" class="card-img-top" id="img-card-rekomen" alt="Rendang">
-                    <div class="card-body">
-                        <p class="card-text" id="card-text-rekomen">
-                            Rendang adalah hidangan berbahan dasar daging yang dihasilkan dari proses memasak suhu
-                            rendah dalam waktu lama dengan menggunakan aneka rempah-rempah dan santan...</p>
-                        <a href="#" class="card-link" id="card-klik">
-                            Show Recipes</a>
-                    </div>
-                </div>
-            </div>
+        <div class="row  g-4" >
+        <?php
+        while ($row = $data->fetch_assoc()) {
+            echo ' <div class="col-md-4">
+                        <div class="card h-100" style="width: 18rem; border-radius: 20px">
+                            <img src="'.htmlspecialchars($row['image']).'" class="card-img-top" id="img-card-rekomen" alt="Rendang">
+                            <div class="card-body">
+                            <h6 >'.htmlspecialchars($row['menu']).'</h6>
+                                <a href="recipes_details.php?id_recipes=' . $row['id_recipes'] . '" class="card-link" id="card-klik">
+                                    Show Recipes</a>
+                            </div>
+                        </div>
+                    </div>';
+        }
+        ?>
 
-            <div class="col">
-                <div class="card h-100" style="width: 18rem; border-radius: 20px">
-                    <img src="assets/img/gudeg.jpg" class="card-img-top" id="img-card-rekomen" alt="Gudeg">
-                    <div class="card-body">
-                        <p class="card-text" id="card-text-rekomen">
-                            Gudeg adalah hidangan khas Daerah Istimewa Yogyakarta yang terbuat dari nangka muda yang
-                            dimasak dengan santan...</p>
-                        <a href="#" class="card-link" id="card-klik">
-                            Show Recipes</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="card h-100" style="width: 18rem; border-radius: 20px">
-                    <img src="assets/img/coto_makassar.jpg" class="card-img-top" id="img-card-rekomen" alt="Coto Makassar">
-                    <div class="card-body">
-                        <p class="card-text" id="card-text-rekomen">
-                            Coto makassar atau Pallu coto mangkasarak adalah hidangan tradisional Suku Makassar, Sulawesi Selatan.
-                            Makanan ini terbuat dari jeroan sapi yang direbus dalam waktu yang lama...</p>
-                        <a href="#" class="card-link" id="card-klik">
-                            Show Recipes</a>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 
@@ -94,7 +75,7 @@
 
     <!-- eksplor -->
     <div class="container text-center" id="eksplor-full">
-        <h2 id="eksplor-text">Explore Recipes by District</h2>
+        <h2 id="eksplor-text">Explore Recipes by Province</h2>
         <div id="carouselExampleIndicators" class="carousel slide">
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"

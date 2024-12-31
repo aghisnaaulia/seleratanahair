@@ -1,9 +1,13 @@
 <?php
     include('navbar.php');
+    include('config.php');
+
+    $data =  mysqli_query($connection, "SELECT * FROM recipes
+                        ORDER BY id_recipes DESC") or die(mysqli_error($connection));
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
     <meta charset="UTF-8">
@@ -12,69 +16,32 @@
 </head>
 
 <body class="isi">
-    
-    <!-- detail resep 
-    <div class="container text-center" id="conta-detail">
-        <div class="row row-cols-1 row-cols-md-3 g-4" id="row-card-detail">
-            <div class="col">
-                <div class="card h-100" id="card-detail"
-                    style="width: 18rem; background: none; border: none; border-radius: 20px">
-                    <img src="assets/img/iya/rendang.jpg" class="card-img-top" id="img-card-detail" alt="Rendang">
-                </div>
-            </div>
+    <br>
 
-            <div class="col">
-                <div class="card h-100" id="card-detail"
-                    style="width: 18rem; background: none; border: none; border-radius: 20px">
-                    <p id="detail-text">Rendang</p>
-                    <ul>
-                        <li>- Coffee</li>
-                        <li>- Tea</li>
-                        <li>- Milk</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+    <!-- rekomendasi -->
+    <div class="container text-center">
+        <p id="rekomen-text">Popular Recipes you Can Try</p>
 
-        <div class="row row-cols-1 row-cols-md-3 g-4" id="row-card-detail">
-            <div class="col">
-                <div class="card h-100" style="width: 18rem; border: none; border-radius: 20px">
-                    <p id="detail-text">Popular Recipes you Can Try</p>
-                    <p class="card-text" id="card-text-detail">
-                        Rendang adalah hidangan berbahan dasar daging yang dihasilkan dari
-                        proses memasak suhu rendah dalam waktu lama dengan menggunakan aneka
-                        rempah-rempah dan santan...
-                    </p>
-                </div>
-            </div>
+        <div class="row  g-4" >
+        <?php
+        while ($row = $data->fetch_assoc()) {
+            echo ' <div class="col-md-4">
+                        <div class="card h-100" style="width: 18rem; border-radius: 20px">
+                            <img src="'.htmlspecialchars($row['image']).'" class="card-img-top" id="img-card-rekomen" alt="Rendang">
+                            <div class="card-body">
+                            <h6 >'.htmlspecialchars($row['menu']).'</h6>
+                                <a href="recipes_details.php?id_recipes=' . $row['id_recipes'] . '" class="card-link" id="card-klik">
+                                    Show Recipes</a>
+                            </div>
+                        </div>
+                    </div>';
+        }
+        ?>
+
         </div>
     </div>
-    </div>
 
 
-
-    <div class="container">
-        <div class="image-container">
-            <img src="/api/placeholder/400/400" alt="Rendang">
-        </div>
-        <div class="content">
-            <div class="title">Rendang</div>
-            <div class="subtitle">Bahan - Bahan</div>
-            <ul>
-                <li>1 kg daging sapi has dalam</li>
-                <li>1 lembar daun kunyit, sobek-sobek</li>
-                <li>4 lembar daun jeruk</li>
-                <li>2 lembar daun salam</li>
-                <li>1 buah bunga lawang</li>
-                <li>2 batang serai, geprek</li>
-                <li>1/2 buah pala, tumbuk</li>
-                <li>1/2 sdt ketumbar</li>
-                <li>2 sdt garam</li>
-                <li>2 liter santan kelapa</li>
-            </ul>
-        </div>
-    </div>
-    -->
 </body>
 
 </html>
