@@ -13,7 +13,16 @@
 #navbarr {
     display: flex;
     align-items: center;
-    justify-content: center;
+    align-content: center;
+    align-self: center;
+    justify-content: center;    
+}
+
+.nav-icon {
+    width: 70px;
+    height: 70px;
+    margin-left: 10%;
+    object-fit: contain;
 }
 
 .navbar-brand {
@@ -21,8 +30,8 @@
 }
 
 #navbar-search {
-    margin-left: 10%;
-    width: 30%;
+    margin-left: 8%;
+    width: 40%;
 }
 
 #form-search {
@@ -177,8 +186,8 @@
 #rekomen-text {
     display: flex;
     position: relative;
-    margin-top: 50px;
-    font-size: 20px;
+    margin-top: 15px;
+    font-size: 25px;
     text-align: center;
     font-weight: bold;
     text-decoration: none;
@@ -247,20 +256,6 @@
     height: fit-content;
 }
 
-#row-card-rekomen {
-    position: relative;
-    display: flex;
-    width: max-content;
-    padding: auto;
-    margin: auto;
-    flex-direction: row;
-    text-align: center;
-    text-decoration: none;
-    align-content: center;
-    align-items: baseline;
-    justify-content: center;
-}
-
 #img-card-rekomen {
     position: relative;
     width: 70%;
@@ -285,18 +280,19 @@
 
 #card-klik {
     position: relative;
-    color: #6D7588;
+    color: #555555;
     background-color: #ffffff;
     border-color: #cacaca;
     border-radius: 20px;
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
     transition-duration: 0.4s;
-    margin: 0px 28px 25px;
+    margin: 20px 28px 25px;
     width: 80%;
     height: 40px;
     display: flex;
     flex-direction: column;
     text-align: center;
+    font-weight: 400;
     text-decoration: none;
     align-content: center;
     align-items: center;
@@ -309,8 +305,7 @@
 #card-klik:active,
 #card-klik.active,
 .open .dropdown-toggle #card-klik {
-    color: #ffffff;
-    background-color: #797979;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
 }
 
 #kotak-col-eksplor {
@@ -599,14 +594,14 @@
     letter-spacing: 0.3px;
 }
 #btn-logout:hover {
-    color: #696969;
+    color: #464646;
     text-decoration: none;
 }
 
 #form-addrec {
-    margin-top: 2rem;
+    margin-top: 1rem;
     margin-left: 8rem;
-    width: 100%;
+    width: 95%;
     height: fit-content;
     font-size: 13px;
     text-decoration: none;
@@ -620,9 +615,14 @@
     letter-spacing: 0.3px;
 }
 
-#submit-addrec {
-    width: 50vw;
-    height: fit-content;
+#tombol-addrec {
+    padding-left: 36rem;
+}
+
+#submit-addrec, #back-addrec{
+    margin: auto;
+    width: 120px;
+    height: 35px;
     border: none;
     border-radius: 10px;
     color: #000000;
@@ -638,8 +638,8 @@
     align-self: center;
     letter-spacing: 0.3px;
 }
-#submit-addrec:hover {
-    color: #000000;
+#submit-addrec:hover, #back-addrec:hover{
+    color: #464646;
     background-color: #F5F5F5;
     box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
     border: none;

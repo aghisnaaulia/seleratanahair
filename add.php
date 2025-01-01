@@ -13,6 +13,7 @@
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote-lite.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote-lite.min.js"></script>
+    <link rel="stylesheet" href="index.css">
 </head>
 
 <body class="isi">
@@ -56,6 +57,10 @@
     }
     ?>
 
+    <h1 style="margin-top: 3rem; font-size: 25px; text-decoration: none; text-align: center;">
+        <b>Add Recipes</b>
+    </h1>
+
     <form action="add.php" method="post" id="form-addrec" enctype="multipart/form-data">
         <div class="item form-group">
             <label class="col-form-label col-md-3 col-sm-3 label-align">Menu</label>
@@ -96,10 +101,12 @@
             </div>
         </div>
 
-        <div class="item form-group">
+        <div class="item form-group" id="tombol-addrec">
             <div class="col-md-6 col-sm-6 offset-md-3">
-                <input type="submit" name="submit" class="btn btn-primary" id="submit-addrec" value="Add Recipes">
-                <a href="dashboard.php" class="btn btn-warning">Back</a>
+                <input type="submit" name="submit" class="btn btn-primary"
+                    id="submit-addrec" value="Add Recipes"
+                    style="background-color:#ffa889;">
+                <a href="dashboard.php" class="btn btn-warning" id="back-addrec">Back</a>
             </div>
         </div>
     </form>

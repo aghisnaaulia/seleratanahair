@@ -25,7 +25,11 @@
 
             <div class="carousel-item">
                 <img src="assets/img/carousel_2.jpg" class="d-block w-100" alt="...">
-                <button type="button" class="btn btn-lg btn-custom" id="btn-slider-1">Show Recipes</button>
+                <a href="recipes.php">
+                    <button type="button" class="btn btn-lg btn-custom" id="btn-slider-1">
+                        Show Recipes
+                    </button>
+                </a>
             </div>
 
             <div class="carousel-item">
@@ -47,27 +51,28 @@
     </div>
 
     <br>
+    <br>
 
     <!-- rekomendasi -->
     <div class="container text-center">
-        <p id="rekomen-text">Popular Recipes you Can Try</p>
+        <p id="rekomen-text" style="font-size: 20px;">Popular Recipes you Can Try</p>
 
         <br>
 
-        <div class="row g-4" >
+        <div class="row g-4" style="padding-left: 3rem;">
         <?php
-        while ($row = $data->fetch_assoc()) {
-            echo ' <div class="col-md-4">
-                        <div class="card h-100" style="width: 18rem; border-radius: 20px">
-                            <img src="'.htmlspecialchars($row['image']).'" class="card-img-top" id="img-card-rekomen" alt="Rendang">
-                            <div class="card-body">
-                            <h6>'.htmlspecialchars($row['menu']).'</h6>
-                                <a href="recipes_details.php?id_recipes=' . $row['id_recipes'] . '" class="card-link" id="card-klik">
-                                    Show Recipes</a>
+            while ($row = $data->fetch_assoc()) {
+                echo ' <div class="col-md-4">
+                            <div class="card h-100" style="width: 18rem; border-radius: 20px">
+                                <img src="'.htmlspecialchars($row['image']).'" class="card-img-top" id="img-card-rekomen" alt="Rendang">
+                                <div class="card-body">
+                                <h6>'.htmlspecialchars($row['menu']).'</h6>
+                                    <a href="recipes_details.php?id_recipes=' . $row['id_recipes'] . '" class="card-link" id="card-klik">
+                                        Show Recipes</a>
+                                </div>
                             </div>
-                        </div>
-                    </div>';
-        }
+                        </div>';
+            }
         ?>
 
         </div>

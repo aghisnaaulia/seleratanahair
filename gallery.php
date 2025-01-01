@@ -1,5 +1,9 @@
 <?php
     include('navbar.php');
+    include('config.php');
+
+    $data =  mysqli_query($connection, "SELECT * FROM recipes
+                        ORDER BY id_recipes DESC") or die(mysqli_error($connection));
 ?>
 
 <!DOCTYPE html>
@@ -16,103 +20,24 @@
 
         <br>
 
-        <div class="row row-cols-1 row-cols-md-3 g-4" id="row-card-rekomen">
-            <div class="col">
-                <div class="card h-100" style="width: 18rem; border-radius: 20px">
-                    <img src="assets/img/iya/asem_asem_daging.jpg" class="card-img-top" id="img-card-rekomen" alt="Rendang">
-                    <div class="card-body">
-                        <a href="#" class="card-link" id="card-klik">
-                            Asam - Asam Daging</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="card h-100" style="width: 18rem; border-radius: 20px">
-                    <img src="assets/img/iya/asem_kacang_merah.jpg" class="card-img-top" id="img-card-rekomen" alt="Gudeg">
-                    <div class="card-body">
-                        <a href="#" class="card-link" id="card-klik">
-                            Asam Kacang Merah</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="card h-100" style="width: 18rem; border-radius: 20px">
-                    <img src="assets/img/iya/ayam_betutu.jpg" class="card-img-top" id="img-card-rekomen" alt="Rendang">
-                    <div class="card-body">
-                        <a href="#" class="card-link" id="card-klik">
-                            Ayam Betutu</a>
-                    </div>
-                </div>
-            </div>
+        <div class="row g-4" style="padding-left: 3rem;">
+            <?php
+            while ($row = $data->fetch_assoc()) {
+                echo ' <div class="col-md-4">
+                            <div class="card h-100" style="width: 18rem; border-radius: 20px">
+                                <img src="'.htmlspecialchars($row['image']).'" class="card-img-top" id="img-card-rekomen" alt="Rendang">
+                                <div class="card-body">
+                                <h6>'.htmlspecialchars($row['menu']).'</h6>
+                                    <a href="recipes_details.php?id_recipes=' . $row['id_recipes'] . '" class="card-link" id="card-klik">
+                                        Show Recipes</a>
+                                </div>
+                            </div>
+                        </div>';
+            }
+            ?>
         </div>
 
-        <div class="row row-cols-1 row-cols-md-3 g-4" id="row-card-rekomen">
-            <div class="col">
-                <div class="card h-100" style="width: 18rem; border-radius: 20px">
-                    <img src="assets/img/iya/ayam_taliwang.jpg" class="card-img-top" id="img-card-rekomen" alt="Rendang">
-                    <div class="card-body">
-                        <a href="#" class="card-link" id="card-klik">
-                            Ayam Taliwang</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="card h-100" style="width: 18rem; border-radius: 20px">
-                    <img src="assets/img/iya/babi_panggang_karo.jpg" class="card-img-top" id="img-card-rekomen" alt="Gudeg">
-                    <div class="card-body">
-                        <a href="#" class="card-link" id="card-klik">
-                            Babi Panggang Karo</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="card h-100" style="width: 18rem; border-radius: 20px">
-                    <img src="assets/img/iya/bakso.jpg" class="card-img-top" id="img-card-rekomen" alt="Rendang">
-                    <div class="card-body">
-                        <a href="#" class="card-link" id="card-klik">
-                            Bakso</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row row-cols-1 row-cols-md-3 g-4" id="row-card-rekomen">
-            <div class="col">
-                <div class="card h-100" style="width: 18rem; border-radius: 20px">
-                    <img src="assets/img/iya/bubur_mangguh.jpg" class="card-img-top" id="img-card-rekomen" alt="Rendang">
-                    <div class="card-body">
-                        <a href="#" class="card-link" id="card-klik">
-                            Bubur Mangguh</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="card h-100" style="width: 18rem; border-radius: 20px">
-                    <img src="assets/img/iya/dendeng_batotok.jpg" class="card-img-top" id="img-card-rekomen" alt="Gudeg">
-                    <div class="card-body">
-                        <a href="#" class="card-link" id="card-klik">
-                            Dendeng Batotok</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="card h-100" style="width: 18rem; border-radius: 20px">
-                    <img src="assets/img/iya/gado_gado.jpg" class="card-img-top" id="img-card-rekomen" alt="Rendang">
-                    <div class="card-body">
-                        <a href="#" class="card-link" id="card-klik">
-                            Gado - Gado</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        
+        <br>
 </div>
 
 </body>

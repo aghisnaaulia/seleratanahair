@@ -154,6 +154,9 @@
     <br>
 
     <a href="logout.php" class="logout-btn" id="btn-logout">Logout</a>
+    
+    <br>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
