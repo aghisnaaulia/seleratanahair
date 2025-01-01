@@ -77,6 +77,14 @@
         <div class="container-eek">
             <div class="login-container">
                 <?php
+                $valid_credentials = array(
+                    "admin" => "admin123",
+                    "ShalluRestraR" => "AdminShallu",
+                    "AldakaTriyanti" => "AdminAldaka",
+                    "DinaFitriR" => "AdminDina",
+                    "AghisnaAuliaR" => "AdminAghis"
+                );
+
                 if (isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in'] === true) {
                     header("Location: dashboard.php");
                     exit();
@@ -87,8 +95,7 @@
                     $username = $_POST['username'];
                     $password = $_POST['password'];
 
-                    // Ganti dengan username dan password yang kamu mau
-                    if ($username === "admin" && $password === "admin123") {
+                    if (array_key_exists($username, $valid_credentials) && $password === $valid_credentials[$username]) {
                         $_SESSION['admin_logged_in'] = true;
                         $_SESSION['admin_username'] = $username;
                         header("Location: dashboard.php");
